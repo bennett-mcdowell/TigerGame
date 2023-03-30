@@ -84,7 +84,7 @@ int main()
   } 
   else
   {
-    cout << "Tie" << endl;
+    cout << "Tie!" << endl;
   }
 
   return 0;

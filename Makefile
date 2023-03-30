@@ -1,4 +1,4 @@
-gCXX = g++
+CXX = g++
 OPTIONS = -Wall
 PROGRAM = main.out
 

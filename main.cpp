@@ -17,16 +17,28 @@ int main()
   Deck deck;
   deck.shuffle();
 
-  // 2. Create two players, each one with 5 cards in their hand.
-  Player human(deck, 5);
-  Player computer(deck, 5);
-
   cout << "Welcome to TigerGame!" << endl;
-  cout << "The deck was shuffled and each player has drawn 5 cards." << endl;
+  
+  int drawAmount = 0;
+  while (drawAmount <= 0 || drawAmount > 10)
+  {
+    cout << "How many cards would you like to draw? (Max of 10): " << endl;
+    cin >> drawAmount;
+    if (drawAmount <= 0 || drawAmount > 10)
+    {
+      cout << "Enter another input, max is 10." << endl;
+    }
+  }
+
+  cout << "The deck was shuffled and each player has drawn " << drawAmount << " cards." << endl;
   cout << endl;
 
+  // 2. Create two players, each one with 5 cards in their hand.
+  Player human(deck, drawAmount);
+  Player computer(deck, drawAmount);
+
   // 3. Play five rounds. In each round:
-  for (int i = 1; i <= 5; i++)
+  for (int i = 1; i <= drawAmount; i++)
   {
     cout << "Round " << i << ":" << endl;
     cout << "-------" << endl;

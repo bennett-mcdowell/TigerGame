@@ -126,13 +126,13 @@ int main()
     cout << "Human wins: " << human_wins.size() << endl;
     cout << "Computer wins: " << computer_wins.size() << endl;
     cout << "Human points each round: ";
-    for (int i = 0; i < human_points.size(); i++)
+    for (int i = 0; i < static_cast<int>(human_points.size()); i++)
     {
         cout << human_points[i] << " ";
     }
     cout << endl;
     cout << "Computer points each round: ";
-    for (int i = 0; i < computer_points.size(); i++)
+    for (int i = 0; i < static_cast<int>(computer_points.size()); i++)
     {
         cout << computer_points[i] << " ";
     }

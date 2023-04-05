@@ -7,6 +7,8 @@ Deck::Deck()
         deck.push_back(Card(i, Card::Color::purple));
         deck.push_back(Card(i, Card::Color::orange));
     }
+
+    deck.push_back(Card(10, Card::Color::orange));
 }
 
 void Deck::shuffle()

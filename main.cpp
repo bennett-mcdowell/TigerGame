@@ -14,7 +14,8 @@ using namespace std;
 int main()
 {
     vector<int> human_wins, computer_wins, human_points, computer_points;
-    int total_rounds = 0;
+    int total_rounds = 0, temp;
+    bool tiger;
 
     bool play_again = true;
     while (play_again)
@@ -64,7 +65,19 @@ int main()
             cout << "You played: " << human_card.printCard() << endl;
 
             // Determine who won the round and update points accordingly.
-            if (human_card.getValue() > computer_card.getValue())
+
+            // Check if human played the Tiger card
+            if (human_card.getRank() == 10 && human_card.getColor() == Card::Color::orange)
+            {
+                cout << "You played the Tiger card! You win with 20 additional points!" << endl;
+                human.score += human_card.getValue();
+                human.score += 20;
+                human_wins.push_back(i);
+                temp = i;
+                i += drawAmount;
+                tiger = true;
+            }
+            else if (human_card.getValue() > computer_card.getValue())
             {
                 cout << "You win this round!" << endl;
                 human.score += human_card.getValue();
@@ -92,8 +105,15 @@ int main()
 
             cout << endl;
         }
-
-        total_rounds += drawAmount;
+        
+        if(tiger == true)
+        {
+            total_rounds += temp;
+        }
+        else
+        {
+            total_rounds += drawAmount;
+        }
 
         // 4. Print final game results.  
         cout << "FINAL SCORE:" << endl;
